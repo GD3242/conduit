@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  conduit_db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'conduit'
+      MYSQL_USER: 'conduit'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '4306:3306'
+    expose:
+      - '4306'
+    volumes:
+      - conduit_db:/var/lib/mysql
+volumes:
+  conduit_db:
